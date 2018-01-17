@@ -1,0 +1,31 @@
+<?php
+$categories = $this->getStoreCategories(true,true,true);
+$categoryHelper = $this->getCategoryHelper();
+?>
+<div class="categories-wrapper">
+  <div class="category-title">Categories</div>
+<ul class="categories-list-container">
+<?php
+foreach($categories as $category):
+	 $image = $category->getImageUrl();
+     if (!$category->getIsActive()) {
+        continue;
+     }
+?>
+<li class="category-list-item"><a class="category_name" href="<?php echo $categoryHelper->getCategoryUrl($category) ?>">
+                       	<div class="category_image">
+                       		<img src="<?php echo $this->getViewFileUrl('images/no-image.png'); ?>"  alt="<?php echo $category->getName(); ?>" />
+                       		
+                       	</div>
+                        <div class="category_title"><?php echo $category->getName() ; ?></div>
+                    </a>
+                </li>
+
+                
+
+
+<?php
+endforeach;
+?>
+</ul>
+</div>

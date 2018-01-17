@@ -1,0 +1,15 @@
+<?php
+$productCollection = $this->getProductCollection();
+
+?>
+<ul>
+<?php
+foreach($productCollection as $product):
+    
+?>
+<li><?php echo $product->getData() ?>
+</li>
+<?php
+endforeach;
+?>
+</ul>
