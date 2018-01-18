@@ -1,16 +1,20 @@
 <?xml version="1.0"?>
-<body>
-    <move element="navigation.sections" destination="header-wrapper"  after="logo" />
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <move element="navigation.sections" destination="header-wrapper"  after="logo" />
     <move element="top.search" destination="header-wrapper"  after="logo" />
      <move element="minicart" destination="header-wrapper"  after="logo" />
-    
+
+        <!-- <container name="banner.top" label="Before categories" htmlTag="div" htmlClass="top-banner"/>
+        <block class="Nettantra\Custom\Block\TopCarousel" name="top_banner" as="top_banner" template="Nettantra_Custom::top_banner.phtml"/>
+         </container> -->
 
 <referenceContainer name="page.bottom.container">
             <container name="page.bottom" label="Before Page Footer" htmlTag="div" htmlClass="content"/>
         </referenceContainer>
         <referenceContainer name="footer-container">
             <container name="footer" as="footer" label="Page Footer" htmlTag="div" htmlClass="footer content">
-                
+                <block class="Nettantra\Custom\Block\CustomFooter" name="custom_footer" as="custom_footer" template="Nettantra_Custom::custom_footer.phtml"/>
                 <block class="Magento\Framework\View\Element\Html\Links" name="footer_links">
                     <arguments>
                         <argument name="css_class" xsi:type="string">footer links</argument>
@@ -27,3 +31,4 @@
             <block class="Magento\Framework\View\Element\FormKey" name="formkey"/>
         </referenceContainer>
 </body>
+</page>

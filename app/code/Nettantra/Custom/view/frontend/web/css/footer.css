@@ -1,0 +1,11 @@
+.footer-wrapper{
+	background-color: #0c0c0c;
+	height:200px;
+}
+.col{
+	list-style: none;
+	display: inline-block;
+	width:16%;
+	padding:10px;
+	color:white;
+}

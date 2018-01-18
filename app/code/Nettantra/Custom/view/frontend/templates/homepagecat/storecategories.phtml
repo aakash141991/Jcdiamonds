@@ -3,8 +3,9 @@ $categories = $this->getStoreCategories(true,true,true);
 $categoryHelper = $this->getCategoryHelper();
 ?>
 <div class="categories-wrapper">
-  <div class="category-title">Categories</div>
-<ul class="categories-list-container">
+  <div class="category-title"><span class="title-dot">.<span><span class="title-text">Categories</span></div>
+<div class="categories-list-container owl-carousel">
+  <?php $count = 0; ?>
 <?php
 foreach($categories as $category):
 	 $image = $category->getImageUrl();
@@ -12,14 +13,15 @@ foreach($categories as $category):
         continue;
      }
 ?>
-<li class="category-list-item"><a class="category_name" href="<?php echo $categoryHelper->getCategoryUrl($category) ?>">
+ <?php $count = $count + 1; ?>
+<div class="category-list-item item item-<?php echo $count ?>"><a class="category_name" href="<?php echo $categoryHelper->getCategoryUrl($category) ?>">
                        	<div class="category_image">
                        		<img src="<?php echo $this->getViewFileUrl('images/no-image.png'); ?>"  alt="<?php echo $category->getName(); ?>" />
                        		
                        	</div>
                         <div class="category_title"><?php echo $category->getName() ; ?></div>
                     </a>
-                </li>
+                </div>
 
                 
 
@@ -27,5 +29,9 @@ foreach($categories as $category):
 <?php
 endforeach;
 ?>
-</ul>
+</div>
+<div id="info"></div>
+ <div class="owl-controls">
+        <div id="customNav" class="owl-nav"><span id="customDots" class="owl-dots"></span></div>
+    </div>
 </div>

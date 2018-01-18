@@ -1,7 +1,12 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
+    	<css src="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" src_type="url" />
         <css src="Nettantra_Custom::css/custom.css" />
+         <css src="Nettantra_Custom::css/footer.css" />
+         <css src="Nettantra_Custom::css/owl.carousel.min.css" />
+         <css src="Nettantra_Custom::css/owl.theme.default.min.css" />
          <script src="Nettantra_Custom::js/jquery-3.2.1.min.js"></script>
+         <script src="Nettantra_Custom::js/owl.carousel.min.js"></script>
         <script src="Nettantra_Custom::js/custom.js"></script>
 
     </head>

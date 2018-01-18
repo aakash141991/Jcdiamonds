@@ -1,7 +1,7 @@
 <?php
 namespace Nettantra\Custom\Block;
 
-class ProductCollection extends \Magento\Framework\View\Element\Template
+class TopCarousel extends \Magento\Framework\View\Element\Template
 {
      protected $_productCollectionFactory;
         
@@ -23,4 +23,3 @@ class ProductCollection extends \Magento\Framework\View\Element\Template
         return $collection;
     }
 }
- 

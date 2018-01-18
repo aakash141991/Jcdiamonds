@@ -6,6 +6,13 @@ class CategorisCollection extends \Magento\Framework\View\Element\Template
      protected $_categoryHelper;
      protected $categoryFlatConfig;
      protected $topMenu;
+
+     /**
+     * Instance of pager block
+     *
+     * @var \Magento\Catalog\Block\Product\Widget\Html\Pager
+     */
+    protected $pager;
     /**
      * @param \Magento\Framework\View\Element\Template\Context $context
      * @param \Magento\Catalog\Helper\Category $categoryHelper
@@ -63,6 +70,47 @@ class CategorisCollection extends \Magento\Framework\View\Element\Template
                 $subcategories = $category->getChildren();
             }
             return $subcategories;
+    }   
+    /**
+     * Render pagination HTML
+     *
+     * @return string
+     */
+    public function getPagerHtml()
+    {
+        if ($this->showPager() && $this->getProductCollection()->getSize() > $this->getProductsPerPage()) {
+            if (!$this->pager) {
+                $this->pager = $this->getLayout()->createBlock(
+                    \Magento\Catalog\Block\Product\Widget\Html\Pager::class,
+                    'widget.products.list.pager'
+                );
+
+                $this->pager->setUseContainer(true)
+                    ->setShowAmounts(true)
+                    ->setShowPerPage(false)
+                    ->setPageVarName($this->getData('page_var_name'))
+                    ->setLimit(4)
+                    ->setTotalLimit(16)
+                    ->setCollection($this->getCategoryCollection());
+            }
+            if ($this->pager instanceof \Magento\Framework\View\Element\AbstractBlock) {
+                return $this->pager->toHtml();
+            }
+        }
+        return '';
+    }
+
+      /**
+     * Retrieve collection of selected categories
+    */
+   public function getCategoryCollection()
+    {
+
+        $category = $this->_categoryFactory->create();
+        $collection = $category
+                      ->getCollection()
+                      ->addAttributeToSelect('image');
+        return $collection;
     }
 }
  
